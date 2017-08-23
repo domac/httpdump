@@ -35,7 +35,7 @@ Url: /testplatform/v1/download/?sys_id=tester
 
 SrcIP: 192.168.139.1
 SrcPort: 53547
-DstIP: 92.168.139.104
+DstIP: 192.168.139.104
 DstPort: 80
 ReqSize: 0
 Method: GET
