@@ -18,7 +18,7 @@ go build -o httpdump
 sudo ./httpdump
 ```
 
-### 运行结果
+### 运行结果
 
 ```
 
