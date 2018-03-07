@@ -18,6 +18,8 @@ import (
 
 var snaplen = flag.Int("s", 1600, "SnapLen for pcap packet capture")
 
+var promisc = flag.Bool("promisc", false, "promisc mode") //是否开启混杂模式,默认关闭
+
 var filter = flag.String("f", "tcp and (dst port 80 or dst port 8080 or dst port 443 or dst port 10029)", "BPF filter for pcap")
 
 //继承 tcpassembly.StreamFactory
@@ -96,7 +98,7 @@ func GetAssembler() *tcpassembly.Assembler {
 }
 
 func capturePackets(faceName string, assembler *tcpassembly.Assembler) {
-	handle, err := pcap.OpenLive(faceName, int32(*snaplen), true, 500)
+	handle, err := pcap.OpenLive(faceName, int32(*snaplen), *promisc, 500)
 	if err != nil {
 		log.Fatal(err)
 	}
